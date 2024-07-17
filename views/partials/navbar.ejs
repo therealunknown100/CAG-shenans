@@ -1,0 +1,49 @@
+<nav class="navbar navbar-expand-sm bg-secondary navbar-dark">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="/">FlexRadioSG</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="collapsibleNavbar">
+            <ul class="navbar-nav me-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="/" aria-current="page">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/about">About</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/stations">Stations</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/contact">Contact</a>
+                </li>
+                <% if (loggedIn) { %>
+                <li class="nav-item">
+                    <a class="nav-link" href="/favourites">Favourites</a>
+                </li>
+                <% } %>
+            </ul>
+            <form class="d-flex me-3" action="/search" method="GET">
+                <input class="form-control me-2" type="text" placeholder="Search" name="query">
+                <button class="btn btn-dark" type="submit">Search</button>
+            </form>
+            <% if (loggedIn) { %>
+            <form action="/logout" method="GET" class="d-flex">
+                <button class="btn btn-outline-light" type="submit">Logout</button>
+            </form>
+            <% } else { %>
+            <ul class="navbar-nav ms-3">
+                <li class="nav-item">
+                    <a class="nav-link" href="/login">Login</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/register">Register</a>
+                </li>
+            </ul>
+            <% } %>
+        </div>
+    </div>
+</nav>
+
+
