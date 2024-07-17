@@ -210,7 +210,7 @@ app.post('/addFavourites', (req, res) => {
             console.error('Database query error:', error.message);
             return res.status(500).send('Error Retrieving favourite stations');
         }
-        res.render('favourites');
+        res.redirect('/favourites');
     });
 });
 
